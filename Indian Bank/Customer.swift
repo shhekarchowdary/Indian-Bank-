@@ -69,20 +69,6 @@ class Customer
         self.aadharNumber = aadharNumber
     }
 
-
-    func getData() -> String
-    {
-        var customerData = "-------- Profile Details --------" + "\n"
-        customerData += "   Customer Name: \(self.fullName)" + "\n"
-        customerData += "   Father Name--: \(self.fatherName)" + "\n"
-        customerData += "   Date of Birth: \(self.dob)" + "\n"
-        customerData += "   Phone Numbe--: \(self.phoneNumber)" + "\n"
-        customerData += "   Email-Id-----: \(self.emailId)" + "\n"
-        customerData += "   Address------: \(self.address)" + "\n"
-        customerData += "   Aadhar Number: \(self.aadharNumber)" + "\n"
-        customerData += "   PAN Number---: \(self.panNumber)" + "\n"
-        return customerData
-    }
     
     func transfermoney(from:Int,to:Int,amount:Double)->Bool
     {

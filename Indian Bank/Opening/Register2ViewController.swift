@@ -15,15 +15,15 @@ class Register2ViewController: UIViewController {
         super.viewDidLoad()
         
         let data = """
-            CIN             : \(cCin)
-            Name            : \(cName)
-            Father Name     : \(cfName)
-            Date of Birth   : \(cdateofBirth)
-            Mobile Number   : \(cMobile)
-            Email Id        : \(cEmail)
-            Address         : \(cAdd)
-            Aadhaar         : \(cAad)
-            PAN             : \(cPan)
+            CIN: \(cCin)
+            Name: \(cName)
+            Father Name: \(cfName)
+            Date of Birth: \(cdateofBirth)
+            Mobile Number: \(cMobile)
+            Email Id: \(cEmail)
+            Address: \(cAdd)
+            Aadhaar: \(cAad)
+            PAN: \(cPan)
             """
         customerData.text = data
     }

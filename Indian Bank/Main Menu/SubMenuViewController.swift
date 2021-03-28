@@ -6,6 +6,7 @@ class SubMenuViewController: UIViewController {
     var main = ""
     var selection = ""
     var customer:Customer?
+    var customers = [Customer]()
     
     @IBOutlet weak var paybillsubmenu: UIStackView!
     @IBOutlet weak var bankingsubmenu: UIStackView!
@@ -26,12 +27,12 @@ class SubMenuViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         //create a reference for the DetailsViewController
         if segue.identifier == "transactions"{
             let svc = segue.destination as? TransactionsViewController
             svc?.operations = self.selection
             svc?.customer = self.customer
+            svc?.customers = self.customers
 
         }
         else if segue.identifier == "paybill"{
@@ -68,8 +69,16 @@ class SubMenuViewController: UIViewController {
             message.text = "You don't have multiple Accounts to Transfer"
             message.textColor = .systemRed
         }
-        
     }
+    
+    @IBAction func transferOthers(_ sender: Any) {
+        selection = "tmo"
+        performSegue(withIdentifier: "transactions", sender: self)
+    }
+    
+    
+    
+    
     @IBAction func electricitybill(_ sender: Any) {
         selection = "eb"
         performSegue(withIdentifier: "paybill", sender: self)

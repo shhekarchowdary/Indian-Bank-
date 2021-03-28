@@ -27,6 +27,7 @@ class MainMenuViewController: UIViewController {
         if segue.identifier == "submenu"{
             //create a reference for the DetailsViewController
             let svc = segue.destination as? SubMenuViewController
+            svc?.customers = self.customers
             svc?.customer = self.customer
             //pass values from self to the other view controller
             svc!.main = self.selection
@@ -86,9 +87,6 @@ class MainMenuViewController: UIViewController {
     @IBAction func homeButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "homeScreen", sender: self)
     }
-    
-    
-    
     
 
 }

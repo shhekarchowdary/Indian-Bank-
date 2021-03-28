@@ -81,6 +81,7 @@ class AccountCreationViewController: UIViewController, UIPickerViewDelegate, UIP
     
     @IBAction func popUpPicker(_ sender: Any)
     {
+        message.text = ""
         let vc = UIViewController()
         vc.preferredContentSize = CGSize(width: screenWidth, height: screenHeight)
         let pickerView = UIPickerView(frame: CGRect(x: 0, y: 0, width: screenWidth, height:screenHeight))
