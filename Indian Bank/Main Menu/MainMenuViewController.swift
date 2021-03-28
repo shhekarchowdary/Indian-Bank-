@@ -53,6 +53,7 @@ class MainMenuViewController: UIViewController {
             destination?.customers = customers
             destination?.cinCount = cinCount
             destination?.accountCount = accountCount
+            destination?.empLogin = "INDB123"
         }
     
     }

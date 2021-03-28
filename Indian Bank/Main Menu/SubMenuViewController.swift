@@ -72,7 +72,7 @@ class SubMenuViewController: UIViewController {
     }
     
     @IBAction func transferOthers(_ sender: Any) {
-        selection = "tmo"
+        selection = "tmto"
         performSegue(withIdentifier: "transactions", sender: self)
     }
     

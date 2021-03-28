@@ -2114,7 +2114,6 @@
                                         </state>
                                         <connections>
                                             <action selector="transferOthers:" destination="JlH-c6-n1g" eventType="touchUpInside" id="qiZ-J5-Wsj"/>
-                                            <action selector="transfermoney:" destination="JlH-c6-n1g" eventType="touchUpInside" id="Cv3-sQ-A24"/>
                                         </connections>
                                     </button>
                                 </subviews>

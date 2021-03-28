@@ -139,7 +139,7 @@ class TransactionsViewController: UIViewController,UIPickerViewDelegate,UIPicker
                 accountSelected1 = 0
                 accountSelected2 = 0
             }
-        }else if operations == "tmo"{
+        }else if operations == "tmto"{
             header.text = "Transfer to Others"
             getAccountStack.isHidden = false
             
@@ -193,6 +193,7 @@ class TransactionsViewController: UIViewController,UIPickerViewDelegate,UIPicker
                                 accounttypePV.isHidden = false
                                 enterAmountView.isHidden = false
                                 transferbtn.isHidden = false
+                                messageTransactions.text = ""
                                 rep = 0
                                 found = 1
                                 break
@@ -201,7 +202,7 @@ class TransactionsViewController: UIViewController,UIPickerViewDelegate,UIPicker
                     }
                 }
             }
-            if found == 1{
+            if found == 0{
                 messageTransactions.text = "No Account Found for Given Details"
                 messageTransactions.textColor = .systemRed
             }
@@ -279,7 +280,9 @@ class TransactionsViewController: UIViewController,UIPickerViewDelegate,UIPicker
                     if customer?.transfermoney(from: accountSelected1, to: accountSelected2, amount: amount) == true{
                         let transactionId = (Int.random(in: 11111..<99999))
                         currentBalance = (customer?.accounts[accountSelected1]?.currentBalance)!
-                        customerData.isHidden = false
+                        ToAccountLabel.isHidden = true
+                        ToAccountPV.isHidden = true
+                        customerData.isHidden = true
                         FromAccountLabel.isHidden = true
                         accounttypePV.isHidden = true
                         enterAmountView.isHidden = true
@@ -299,7 +302,7 @@ class TransactionsViewController: UIViewController,UIPickerViewDelegate,UIPicker
                 messageTransactions.text = "From and To Accounts are Same"
                 messageTransactions.textColor = .systemRed
             }
-        }else if operations == "tmo"{
+        }else if operations == "tmto"{
             if checkAmountFeild(){
                 let amount = Double(amountEntered.text!)!
                 var currentBalance = (customer?.accounts[accountSelected1]?.currentBalance)!
