@@ -19,12 +19,12 @@
 		9167E2E426009B660035C2B4 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9167E2E326009B660035C2B4 /* Customer.swift */; };
 		9167E2E726009C840035C2B4 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9167E2E626009C840035C2B4 /* Account.swift */; };
 		9167E2EA2600A6810035C2B4 /* Register1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9167E2E92600A6810035C2B4 /* Register1ViewController.swift */; };
+		916FC40A261042A000859C72 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FC406261042A000859C72 /* TransactionsViewController.swift */; };
+		916FC40B261042A000859C72 /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FC407261042A000859C72 /* MainMenuViewController.swift */; };
+		916FC40C261042A000859C72 /* PayBillsTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FC408261042A000859C72 /* PayBillsTransactionsViewController.swift */; };
+		916FC40D261042A000859C72 /* SubMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 916FC409261042A000859C72 /* SubMenuViewController.swift */; };
 		91AAC366260794A2001C0E7F /* EmployeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAC365260794A2001C0E7F /* EmployeeViewController.swift */; };
 		91AAC36926079C7F001C0E7F /* EmployeeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAC36826079C7F001C0E7F /* EmployeeLoginViewController.swift */; };
-		91AAC3872607D32E001C0E7F /* PayBillsTransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAC37F2607D32D001C0E7F /* PayBillsTransactionsViewController.swift */; };
-		91AAC3882607D32E001C0E7F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAC3802607D32D001C0E7F /* TransactionsViewController.swift */; };
-		91AAC3892607D32E001C0E7F /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAC3812607D32D001C0E7F /* MainMenuViewController.swift */; };
-		91AAC38B2607D32E001C0E7F /* SubMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAC3832607D32D001C0E7F /* SubMenuViewController.swift */; };
 		91AAC3912607D839001C0E7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAC3902607D839001C0E7F /* AppDelegate.swift */; };
 		91BAFB342608D9D5009C9035 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BAFB332608D9D5009C9035 /* Validations.swift */; };
 		91DC33092601FE9900199E7A /* AccountCreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DC33082601FE9900199E7A /* AccountCreationViewController.swift */; };
@@ -45,12 +45,12 @@
 		9167E2E326009B660035C2B4 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		9167E2E626009C840035C2B4 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		9167E2E92600A6810035C2B4 /* Register1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register1ViewController.swift; sourceTree = "<group>"; };
+		916FC406261042A000859C72 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		916FC407261042A000859C72 /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		916FC408261042A000859C72 /* PayBillsTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayBillsTransactionsViewController.swift; sourceTree = "<group>"; };
+		916FC409261042A000859C72 /* SubMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubMenuViewController.swift; sourceTree = "<group>"; };
 		91AAC365260794A2001C0E7F /* EmployeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewController.swift; sourceTree = "<group>"; };
 		91AAC36826079C7F001C0E7F /* EmployeeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeLoginViewController.swift; sourceTree = "<group>"; };
-		91AAC37F2607D32D001C0E7F /* PayBillsTransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PayBillsTransactionsViewController.swift; path = "../../../../Downloads/Indian-Bank-main/Indian Bank/Main Menu/PayBillsTransactionsViewController.swift"; sourceTree = "<group>"; };
-		91AAC3802607D32D001C0E7F /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransactionsViewController.swift; path = "../../../../Downloads/Indian-Bank-main/Indian Bank/Main Menu/TransactionsViewController.swift"; sourceTree = "<group>"; };
-		91AAC3812607D32D001C0E7F /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuViewController.swift; path = "../../../../Downloads/Indian-Bank-main/Indian Bank/Main Menu/MainMenuViewController.swift"; sourceTree = "<group>"; };
-		91AAC3832607D32D001C0E7F /* SubMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubMenuViewController.swift; path = "../../../../Downloads/Indian-Bank-main/Indian Bank/Main Menu/SubMenuViewController.swift"; sourceTree = "<group>"; };
 		91AAC3902607D839001C0E7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "Indian Bank/AppDelegate.swift"; sourceTree = "<group>"; };
 		91BAFB332608D9D5009C9035 /* Validations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		91DC33082601FE9900199E7A /* AccountCreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationViewController.swift; sourceTree = "<group>"; };
@@ -118,10 +118,10 @@
 		91AAC37E2607D300001C0E7F /* Main Menu */ = {
 			isa = PBXGroup;
 			children = (
-				91AAC3812607D32D001C0E7F /* MainMenuViewController.swift */,
-				91AAC37F2607D32D001C0E7F /* PayBillsTransactionsViewController.swift */,
-				91AAC3832607D32D001C0E7F /* SubMenuViewController.swift */,
-				91AAC3802607D32D001C0E7F /* TransactionsViewController.swift */,
+				916FC407261042A000859C72 /* MainMenuViewController.swift */,
+				916FC408261042A000859C72 /* PayBillsTransactionsViewController.swift */,
+				916FC409261042A000859C72 /* SubMenuViewController.swift */,
+				916FC406261042A000859C72 /* TransactionsViewController.swift */,
 				912820F9260E8A6D0080C747 /* UpdateViewController.swift */,
 				9103E5DB260F797400ABBD85 /* OverviewViewController.swift */,
 			);
@@ -206,24 +206,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				916FC40B261042A000859C72 /* MainMenuViewController.swift in Sources */,
 				91AAC3912607D839001C0E7F /* AppDelegate.swift in Sources */,
 				91AAC366260794A2001C0E7F /* EmployeeViewController.swift in Sources */,
 				9112FA9D25FFE7AD00919CC7 /* CustomerIdentificationViewController.swift in Sources */,
-				91AAC3882607D32E001C0E7F /* TransactionsViewController.swift in Sources */,
 				9112FA9925FFE73A00919CC7 /* OpeningViewController.swift in Sources */,
 				912820FA260E8A6D0080C747 /* UpdateViewController.swift in Sources */,
-				91AAC3872607D32E001C0E7F /* PayBillsTransactionsViewController.swift in Sources */,
+				916FC40D261042A000859C72 /* SubMenuViewController.swift in Sources */,
 				91AAC36926079C7F001C0E7F /* EmployeeLoginViewController.swift in Sources */,
 				9167E2EA2600A6810035C2B4 /* Register1ViewController.swift in Sources */,
 				9167E2E426009B660035C2B4 /* Customer.swift in Sources */,
 				9112FA6225FFA31B00919CC7 /* SceneDelegate.swift in Sources */,
 				9103E5DC260F797400ABBD85 /* OverviewViewController.swift in Sources */,
-				91AAC38B2607D32E001C0E7F /* SubMenuViewController.swift in Sources */,
 				91BAFB342608D9D5009C9035 /* Validations.swift in Sources */,
-				91AAC3892607D32E001C0E7F /* MainMenuViewController.swift in Sources */,
+				916FC40C261042A000859C72 /* PayBillsTransactionsViewController.swift in Sources */,
 				915BDAC0260140E4001A0CC5 /* Register2ViewController.swift in Sources */,
 				91DC33092601FE9900199E7A /* AccountCreationViewController.swift in Sources */,
 				9167E2E726009C840035C2B4 /* Account.swift in Sources */,
+				916FC40A261042A000859C72 /* TransactionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

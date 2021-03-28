@@ -1,87 +1,82 @@
-//
-//  TransactionsViewController.swift
-//  Indian Bank
-//
-//  Created by dhanushkelam on 16/03/21.
-//
+
 
 import UIKit
 
-class TransactionsViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
+class TransactionsViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource, UITextFieldDelegate {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
-    //this fucntion determines the number of rows in the pickerView
-
-    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        
-        //when we have more than 1 pickerview we should use if to know which one we are talking about
-
         if pickerView == accounttypePV{
-            return accounttypes.count
+            return customer?.accounts.count ?? 0
         }
         else{
-            return accounttypes.count
+            return customer?.accounts.count ?? 0
         }
     }
     
-    //this function to fill the picker view of items from the required array
-
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == accounttypePV{
-            return accounttypes[row]
+            return customer?.accounts[row]?.type
         }
         else{
-            return accounttypes[row]
+            return customer?.accounts[row]?.type
         }
     }
     
-    //this functions to do the action when the user picks any row in the pickerView
-
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if pickerView == accounttypePV{
-            
-            
+            if operations == "cb"{
+                balanceMoneyLabel.text = String(customer?.accounts[row]?.currentBalance ?? 0.0)
+            }else if operations == "wd" || operations == "dm" || operations == "tm" {
+                accountSelected1 = row
+            }
        }
-        
-       
         else {
-            
-            
+            if operations == "tm"{
+                accountSelected2 = row
+            }
         }
     }
-        var operations = ""
     
-    var accounttypes = ["Savings Account","SavingsPro Account","Salary Account"]
+    var operations = ""
+    var customer:Customer?
+    var accountSelected1 = 0
+    var accountSelected2 = 0
+    
 
+    @IBOutlet weak var header: UILabel!
     @IBOutlet weak var accounttypePV: UIPickerView!
     @IBOutlet weak var ToAccountPV: UIPickerView!
   
     @IBOutlet weak var balanceLabel: UILabel!
-    
     @IBOutlet weak var balanceMoneyLabel: UILabel!
     
-    @IBOutlet weak var withdrawLabel: UILabel!
-    
-    @IBOutlet weak var withdrawAmountTF: UITextField!
     @IBOutlet weak var withdrawbtn: UIButton!
     @IBOutlet weak var depositbtn: UIButton!
-    
-    @IBOutlet weak var transferLabel: UILabel!
-    @IBOutlet weak var transferAmountTF: UITextField!
     @IBOutlet weak var transferbtn: UIButton!
+
+    
     @IBOutlet weak var FromAccountLabel: UILabel!
-    @IBOutlet weak var MsgForWithdraw: UILabel!
-    
-    
-    
-    @IBOutlet weak var MsgForTransfer: UILabel!
+    @IBOutlet weak var messageTransactions: UILabel!
+    @IBOutlet weak var referenceId: UILabel!
     @IBOutlet weak var ToAccountLabel: UILabel!
+    
+    @IBOutlet weak var enterAmountView: UIStackView!
+    @IBOutlet weak var amountEntered: UITextField!
+    @IBOutlet weak var transImage: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        messageTransactions.text = ""
+        referenceId.text = ""
+        
+        amountEntered.delegate = self
         
         accounttypePV.delegate = self
         accounttypePV.dataSource = self
@@ -90,52 +85,165 @@ class TransactionsViewController: UIViewController,UIPickerViewDelegate,UIPicker
         ToAccountPV.dataSource = self
         
         if operations == "cb"{
+            header.text = "Check Balance"
+            FromAccountLabel.isHidden = false
             balanceLabel.isHidden = false
             balanceMoneyLabel.isHidden = false
             print("Cb")
+            if (customer?.accounts.count)! >= 1{
+                balanceMoneyLabel.text = String(customer?.accounts[0]?.currentBalance ?? 0.0)
+            }
             
         }
         else if operations == "wd" {
-            withdrawLabel.isHidden = false
-            withdrawAmountTF.isHidden = false
+            header.text = "WithDrawal"
+            FromAccountLabel.isHidden = false
+            enterAmountView.isHidden = false
             withdrawbtn.isHidden = false
-            //withdrawacountTF(Text Field)
-            //MsgForWithdraw
             print("wd")
+            if (customer?.accounts.count)! >= 1{
+                accountSelected1 = 0
+            }
 
         }
         else if operations == "dm"{
-            withdrawLabel.isHidden = false
-            withdrawAmountTF.isHidden = false
+            header.text = "Deposit"
+            FromAccountLabel.isHidden = false
+            enterAmountView.isHidden = false
             depositbtn.isHidden = false
-
+            if (customer?.accounts.count)! >= 1{
+                accountSelected1 = 0
+            }
         }
         
         else if operations == "tm"{
+            header.text = "Transfer"
+            FromAccountLabel.text = "Select From Account"
             FromAccountLabel.isHidden = false
             ToAccountLabel.isHidden = false
             ToAccountPV.isHidden = false
-            transferLabel.isHidden = false
-            transferAmountTF.isHidden = false
+            enterAmountView.isHidden = false
             transferbtn.isHidden = false
-            //TransferAmountTF
-            //MsgForTransfer
-            
-            
+            if (customer?.accounts.count)! >= 1{
+                accountSelected1 = 0
+                accountSelected2 = 0
+            }
         }
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        let allowedCharacters = "1234567890"
+        let allowedCharcterSet = CharacterSet(charactersIn: allowedCharacters)
+        let typedCharcterSet = CharacterSet(charactersIn: string)
+        return allowedCharcterSet.isSuperset(of: typedCharcterSet)
     }
-    */
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
+    func checkAmountFeild() -> Bool{
+        if amountEntered.text == ""{
+            messageTransactions.text = "Please Enter Amount"
+            messageTransactions.textColor = .systemRed
+            return false
+        }
+        return true
+    }
+    
+    
+    @IBAction func withDrawButtonPressed(_ sender: Any) {
+        if checkAmountFeild() {
+            let amount = Double(amountEntered.text!)!
+            var currentBalance = (customer?.accounts[accountSelected1]?.currentBalance)!
+            let withDrawlLimit  = (customer?.accounts[accountSelected1]?.maxWithdrawal)!
+            if amount <= withDrawlLimit{
+                if customer?.accounts[accountSelected1]?.withDraw(amount: amount) == true {
+                    let transactionId = (Int.random(in: 11111..<99999))
+                    currentBalance = (customer?.accounts[accountSelected1]?.currentBalance)!
+                    FromAccountLabel.isHidden = true
+                    accounttypePV.isHidden = true
+                    enterAmountView.isHidden = true
+                    withdrawbtn.isHidden = true
+                    transImage.isHidden = false
+                    messageTransactions.text = "Withdrawl Successful - Balance: \(currentBalance)"
+                    messageTransactions.textColor = #colorLiteral(red: 0.06274509804, green: 0.7803921569, blue: 0.8666666667, alpha: 1)
+                    referenceId.text = "Transaction Id: \(transactionId)"
+                    referenceId.textColor = #colorLiteral(red: 0.06274509804, green: 0.7803921569, blue: 0.8666666667, alpha: 1)
+                    
+                }else{
+                    messageTransactions.text = "Insufficient Balance: \(currentBalance)"
+                    messageTransactions.textColor = .systemRed
+                   
+                }
+            }else{
+                messageTransactions.text = "Amount greater than WithDrawl Limit: \(withDrawlLimit)"
+                messageTransactions.textColor = .systemRed
+            }
+        }
+    }
+    
+    
+    @IBAction func depositButtonPressed(_ sender: Any) {
+        if checkAmountFeild(){
+            let amount = Double(amountEntered.text!)!
+            var currentBalance = (customer?.accounts[accountSelected1]?.currentBalance)!
+            if customer?.accounts[accountSelected1]?.deposit(amount: amount) == true {
+                let transactionId = (Int.random(in: 11111..<99999))
+                currentBalance = (customer?.accounts[accountSelected1]?.currentBalance)!
+                FromAccountLabel.isHidden = true
+                accounttypePV.isHidden = true
+                enterAmountView.isHidden = true
+                depositbtn.isHidden = true
+                transImage.isHidden = false
+                messageTransactions.text = "Deposit Successful - Balance: \(currentBalance)"
+                messageTransactions.textColor = #colorLiteral(red: 0.06274509804, green: 0.7803921569, blue: 0.8666666667, alpha: 1)
+                referenceId.text = "Transaction Id: \(transactionId)"
+                referenceId.textColor = #colorLiteral(red: 0.06274509804, green: 0.7803921569, blue: 0.8666666667, alpha: 1)
+            }else{
+                let depositLimit = (customer?.accounts[accountSelected1]?.maxDeposit)!
+                messageTransactions.text = "Amount greater than Deposit Limit: \(depositLimit)"
+                messageTransactions.textColor = .systemRed
+            }
+        }
+    }
+    
+    
+    @IBAction func transferButtonPressed(_ sender: Any) {
+        if accountSelected1 != accountSelected2{
+            if checkAmountFeild(){
+                let amount = Double(amountEntered.text!)!
+                var currentBalance = (customer?.accounts[accountSelected1]?.currentBalance)!
+                if customer?.transfermoney(from: accountSelected1, to: accountSelected2, amount: amount) == true{
+                    let transactionId = (Int.random(in: 11111..<99999))
+                    currentBalance = (customer?.accounts[accountSelected1]?.currentBalance)!
+                    FromAccountLabel.isHidden = true
+                    accounttypePV.isHidden = true
+                    ToAccountLabel.isHidden = true
+                    ToAccountPV.isHidden = true
+                    enterAmountView.isHidden = true
+                    transferbtn.isHidden = true
+                    transImage.isHidden = false
+                    messageTransactions.text = "Tranfer Successful - From Account Balance: \(currentBalance)"
+                    messageTransactions.textColor = #colorLiteral(red: 0.06274509804, green: 0.7803921569, blue: 0.8666666667, alpha: 1)
+                    referenceId.text = "Transaction Id: \(transactionId)"
+                    referenceId.textColor = #colorLiteral(red: 0.06274509804, green: 0.7803921569, blue: 0.8666666667, alpha: 1)
+                    
+                }else{
+                    messageTransactions.text = "Insufficient Balance in From Account: \(currentBalance)"
+                    messageTransactions.textColor = .systemRed
+                }
+            }
+        }else {
+            messageTransactions.text = "From and To Accounts are Same"
+            messageTransactions.textColor = .systemRed
+        }
+        
+    }
+    
 
 }
